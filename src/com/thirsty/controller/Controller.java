@@ -1,36 +1,20 @@
 package com.thirsty.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import orbotix.robot.base.DeviceAsyncData;
-import orbotix.robot.base.DeviceMessenger;
-import orbotix.robot.base.DeviceSensorsAsyncData;
-import orbotix.robot.base.RGBLEDOutputCommand;
-import orbotix.robot.base.RawMotorCommand;
-import orbotix.robot.base.Robot;
-import orbotix.robot.base.RobotProvider;
-import orbotix.robot.base.RollCommand;
-import orbotix.robot.base.SetDataStreamingCommand;
-import orbotix.robot.base.StabilizationCommand;
-import orbotix.robot.sensor.AccelerometerData;
-import orbotix.robot.sensor.AttitudeData;
-import orbotix.robot.sensor.DeviceSensorsData;
-
-import com.thirsty.R;
-import com.thirsty.view.ResultActivity;
-import com.thirsty.view.RollingActivity;
-import com.thirsty.view.SetupActivity;
-import com.thirsty.view.SplashActivity;
-import com.thirsty.view.ShakeActivity;
-
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Handler;
 import android.util.Log;
+import com.thirsty.R;
+import com.thirsty.view.*;
+import orbotix.robot.base.*;
+import orbotix.robot.sensor.AccelerometerData;
+import orbotix.robot.sensor.AttitudeSensor;
+import orbotix.robot.sensor.DeviceSensorsData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller extends Application {
 	
@@ -262,7 +246,7 @@ public class Controller extends Application {
 					for(DeviceSensorsData datum : data_list){
 
 						//Show attitude data
-						AttitudeData attitude = datum.getAttitudeData();
+						AttitudeSensor attitude = datum.getAttitudeData();
 
 						//Show accelerometer data
 						AccelerometerData accel = datum.getAccelerometerData();
